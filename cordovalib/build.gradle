@@ -11,7 +11,7 @@ repositories {
 }
 
 group = 'com.github.xuzheng94'  //这里对应自己的github名称就可以了
-version = '1.0'
+version = '2.0'
 
 android {
     namespace 'com.shop2cn.cordovalib'
@@ -22,7 +22,7 @@ android {
         minSdk 21
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,7 +47,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.xuzheng94'
                 artifactId = 'SQCordova'
-                version = '1.0'
+                version = '2.0'
             }
         }
     }
