@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+//    id: 'com.github.dcendents.android-maven'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+group = 'com.github.xuzheng94'  //这里对应自己的github名称就可以了
+version = '1.0'
+
+android {
+    namespace 'com.shop2cn.cordovalib'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.shop2cn.cordovalib"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.xuzheng94'
+                artifactId = 'SQCordova'
+                version = '1.0'
+            }
+        }
+    }
+}
